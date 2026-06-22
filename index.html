@@ -470,11 +470,26 @@
       border: 1px solid var(--line);
       background: var(--white);
     }
+    .image-frame.brain-visual {
+      padding: 14px;
+      background: var(--white);
+    }
     .image-frame img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       transition: transform 1s ease;
+    }
+    .image-frame.brain-visual img {
+      height: auto;
+      object-fit: contain;
+    }
+    .visual-caption {
+      margin: 12px 4px 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      text-align: center;
     }
     .image-frame:hover img {
       transform: scale(1.035);
@@ -506,6 +521,24 @@
       place-items: center;
       font-weight: 900;
       flex: 0 0 auto;
+    }
+    .parents-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .parent-point {
+      min-height: 98px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      font-weight: 900;
+      box-shadow: 0 14px 38px rgba(6, 27, 61, .07);
     }
 
     .benefit-grid {
@@ -615,6 +648,105 @@
       font-size: 22px;
     }
     .number-card p { margin-bottom: 0; color: #dce8ff; }
+    .method-flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      align-items: stretch;
+      margin-top: 34px;
+    }
+    .method-step {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px 18px;
+      min-height: 170px;
+      text-align: center;
+      box-shadow: 0 16px 44px rgba(6, 27, 61, .08);
+    }
+    .method-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -13px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--gold);
+      color: var(--navy);
+      font-weight: 900;
+      z-index: 2;
+    }
+    .step-label {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 72px;
+      min-height: 34px;
+      border-radius: var(--radius);
+      background: var(--navy);
+      color: var(--gold-2);
+      font-weight: 900;
+      margin-bottom: 14px;
+    }
+    .method-step p { margin-bottom: 0; color: var(--muted); font-weight: 800; }
+    .outcome-list {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+    .outcome-list span {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 72px;
+      padding: 12px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      border: 1px solid rgba(215, 166, 61, .35);
+      color: #6d4d12;
+      font-weight: 900;
+      text-align: center;
+    }
+    .difference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin-top: 34px;
+    }
+    .difference-card {
+      border-radius: var(--radius);
+      padding: 28px;
+      border: 1px solid var(--line);
+      background: var(--white);
+      box-shadow: 0 16px 46px rgba(6, 27, 61, .08);
+    }
+    .difference-card.highlight {
+      background: var(--navy);
+      color: var(--white);
+      border-color: rgba(255,255,255,.15);
+    }
+    .difference-card.highlight h3 { color: var(--gold-2); }
+    .difference-card ul {
+      margin: 18px 0 0;
+      padding-left: 20px;
+    }
+    .difference-card li { margin-bottom: 10px; color: var(--muted); font-weight: 700; }
+    .difference-card.highlight li { color: #dce8ff; }
+    .promise-box {
+      margin-top: 24px;
+      padding: 24px;
+      border-radius: var(--radius);
+      background: var(--cream);
+      color: #6d4d12;
+      border-left: 5px solid var(--gold);
+      font-weight: 800;
+    }
 
     .founder-card {
       display: grid;
@@ -761,6 +893,47 @@
       color: var(--white);
       box-shadow: none;
     }
+    .location-block {
+      display: grid;
+      grid-template-columns: 1.35fr .65fr;
+      gap: 18px;
+      max-width: 980px;
+      margin: 30px auto 0;
+      text-align: left;
+    }
+    .location-photo,
+    .location-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.2);
+      background: rgba(255,255,255,.08);
+      box-shadow: 0 20px 54px rgba(0,0,0,.22);
+    }
+    .location-photo img,
+    .location-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .location-photo {
+      position: relative;
+      min-height: 390px;
+    }
+    .location-photo img { position: absolute; inset: 0; }
+    .location-details {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      padding: 18px;
+      border-radius: var(--radius);
+      background: rgba(6,27,61,.94);
+      color: var(--white);
+      backdrop-filter: blur(10px);
+    }
+    .location-details h3 { color: var(--gold-2); }
+    .location-details p { margin-bottom: 14px; }
+    .location-details .button { min-height: 42px; }
     @keyframes contactGlow {
       0%, 100% { transform: translate(0, 0) scale(1); opacity: .8; }
       50% { transform: translate(-22px, 18px) scale(1.08); opacity: 1; }
@@ -773,7 +946,7 @@
     }
     .footer-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr .8fr;
+      grid-template-columns: 1.1fr repeat(4, minmax(0, .8fr));
       gap: 28px;
       margin-bottom: 30px;
     }
@@ -810,9 +983,13 @@
       }
       .hero-media { min-height: 540px; }
       .slider { inset: 0; }
-      .feature-row, .benefit-grid, .stats, .programme { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-row, .benefit-grid, .stats, .programme, .parents-grid, .method-flow, .outcome-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .method-step:not(:last-child)::after { display: none; }
       .split, .founder-card, .footer-grid { grid-template-columns: 1fr; }
       .check-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .difference-grid { grid-template-columns: 1fr; }
+      .location-block { grid-template-columns: 1fr; }
+      .location-card img { max-height: 760px; object-fit: contain; }
     }
 
     @media (max-width: 640px) {
@@ -827,10 +1004,11 @@
       .hero-media { min-height: 430px; }
       .floating-card { left: 14px; right: 14px; bottom: 12px; max-width: none; }
       .feature-row { margin-top: 0; }
-      .feature-row, .benefit-grid, .stats, .programme, .check-list { grid-template-columns: 1fr; }
+      .feature-row, .benefit-grid, .stats, .programme, .check-list, .parents-grid, .method-flow, .outcome-list { grid-template-columns: 1fr; }
       .number-card { grid-template-columns: 1fr; }
       .founder-card { padding: 18px; }
       .founder-photo { min-height: 360px; }
+      .location-photo { min-height: 430px; }
     }
   </style>
 </head>
@@ -848,11 +1026,11 @@
         <img src="assets/udaan-logo-full.jpeg" alt="Udaan Abacus Academy logo">
       </a>
       <div class="nav-links">
+        <a href="#home">Home</a>
         <a href="#about">About Us</a>
-        <a href="#abacus">Program Overview</a>
-        <a href="#benefits">Benefits</a>
         <a href="#course">Course</a>
-        <a href="#faq">FAQ</a>
+        <a href="#franchise">Franchise</a>
+        <a href="#careers">Careers</a>
         <a href="#contact">Contact Us</a>
       </div>
       <a class="button dark" href="https://wa.me/918827773391" target="_blank" rel="noopener">Book Now</a>
@@ -928,6 +1106,26 @@
       </div>
     </section>
 
+    <section id="parents">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Why Parents Choose Udaan</p>
+          <h2>Overall Development Through Structured Learning</h2>
+          <p class="lead">At Udaan, we focus on the overall development of every child through a structured and engaging learning approach.</p>
+        </div>
+        <div class="parents-grid">
+          <div class="parent-point reveal"><span class="tick">&check;</span>Child-Centred Learning</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Certified Faculty</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Small Batch Size</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Age Group: 5-14 Years</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Structured Curriculum</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Regular Progress Tracking</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Weekly Tests</div>
+          <div class="parent-point reveal"><span class="tick">&check;</span>Monthly Exams</div>
+        </div>
+      </div>
+    </section>
+
     <section class="band-navy">
       <div class="wrap stats">
         <div class="stat reveal"><strong data-count="10">0</strong><span>Learning Levels</span></div>
@@ -949,8 +1147,9 @@
           <p>Abacus combines logical thinking with mental visualization, encouraging both sides of the brain to work together. The result is sharper thinking, better concentration, stronger memory, and greater confidence in learning.</p>
           <div class="quote">"More than Mental Math — A Foundation for Lifelong Learning."</div>
         </div>
-        <div class="image-frame reveal">
-          <img src="assets/learn-with-abacus.jpeg" alt="Udaan learn with abacus poster">
+        <div class="image-frame brain-visual reveal">
+          <img src="assets/brain-hemispheres-abacus.jpeg" alt="Left and right brain functions strengthened through abacus learning">
+          <p class="visual-caption">Two hemispheres. One powerful mind. Abacus learning supports both logical and creative brain skills.</p>
         </div>
       </div>
     </section>
@@ -1027,6 +1226,113 @@
               </ul>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="method">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">The Udaan Method</p>
+          <h2>The 5-Step Udaan Abacus Method</h2>
+          <p class="lead">A clear progression from physical abacus learning to confident mental calculation and sharper brain skills.</p>
+        </div>
+        <div class="method-flow">
+          <article class="method-step reveal">
+            <span class="step-label">Step 1</span>
+            <h3>Learn on Physical Abacus</h3>
+            <p>Children begin with hands-on abacus practice.</p>
+          </article>
+          <article class="method-step reveal">
+            <span class="step-label">Step 2</span>
+            <h3>Develop Finger Movement</h3>
+            <p>Regular movement builds accuracy and rhythm.</p>
+          </article>
+          <article class="method-step reveal">
+            <span class="step-label">Step 3</span>
+            <h3>Visualise the Abacus</h3>
+            <p>Learners form a strong mental image of the abacus.</p>
+          </article>
+          <article class="method-step reveal">
+            <span class="step-label">Step 4</span>
+            <h3>Mental Calculation</h3>
+            <p>Students solve sums mentally with speed and focus.</p>
+          </article>
+          <article class="method-step reveal">
+            <span class="step-label">Step 5</span>
+            <h3>Sharper Brain Skills</h3>
+            <p>The process supports confident, disciplined learning.</p>
+          </article>
+        </div>
+        <div class="outcome-list reveal" aria-label="Udaan method outcomes">
+          <span>Faster Calculations</span>
+          <span>Better Concentration</span>
+          <span>Improved Memory</span>
+          <span>Stronger Analytical Skills</span>
+          <span>Increased Confidence</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="difference" class="band-light">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Why Udaan Is Different</p>
+          <h2>More Than Marks and Mental Math</h2>
+          <p class="lead">Udaan combines personal attention, engaging practice, and complete skill development so children grow with confidence.</p>
+        </div>
+        <div class="difference-grid">
+          <article class="difference-card reveal">
+            <h3>Most Programs Focus On</h3>
+            <ul>
+              <li>Only Mental Math</li>
+              <li>One Teaching Method</li>
+              <li>Large Batch Sizes</li>
+              <li>Marks &amp; Scores</li>
+              <li>Repetitive Practice</li>
+            </ul>
+          </article>
+          <article class="difference-card highlight reveal">
+            <h3>Udaan Focuses On</h3>
+            <ul>
+              <li>Complete Brain Development Program</li>
+              <li>Child-Centred Learning</li>
+              <li>Personal Attention</li>
+              <li>Skill Development</li>
+              <li>Interactive Learning Experience</li>
+            </ul>
+          </article>
+        </div>
+        <div class="promise-box reveal">
+          <strong>Our Promise:</strong> We don't just teach calculations. We help children develop concentration, memory, confidence, creativity, logical thinking, and problem-solving skills that benefit them throughout life.
+        </div>
+      </div>
+    </section>
+
+    <section id="franchise" class="band-cream">
+      <div class="wrap split">
+        <div class="reveal">
+          <p class="eyebrow">Franchise</p>
+          <h2>Start a Udaan Abacus Learning Centre</h2>
+          <p class="lead">Partner with Udaan to bring structured Abacus and Mental Math learning to more children with guidance, curriculum support, and a child-centred teaching approach.</p>
+          <a class="button dark" href="https://wa.me/918827773391" target="_blank" rel="noopener">Ask About Franchise</a>
+        </div>
+        <div class="image-frame reveal">
+          <img src="assets/billboard.jpeg" alt="Udaan Abacus Academy billboard">
+        </div>
+      </div>
+    </section>
+
+    <section id="careers">
+      <div class="wrap split">
+        <div class="image-frame reveal">
+          <img src="assets/class-experience.png" alt="Udaan classroom learning experience">
+        </div>
+        <div class="reveal">
+          <p class="eyebrow">Careers</p>
+          <h2>Join the Udaan Team</h2>
+          <p class="lead">We welcome passionate educators who enjoy working with children and believe in building confidence, concentration, and lifelong learning habits.</p>
+          <a class="button dark" href="https://wa.me/918827773391" target="_blank" rel="noopener">Apply Now</a>
         </div>
       </div>
     </section>
@@ -1115,6 +1421,19 @@
             <span>Instagram<small>@udaan.abacus</small></span>
           </a>
         </div>
+        <div class="location-block">
+          <div class="location-photo">
+            <img src="assets/academy-building.jpeg" alt="Udaan Abacus Academy building at Tower Square, Indore">
+            <div class="location-details">
+              <h3>Visit Udaan Abacus Academy</h3>
+              <p>914, 2nd Floor, Tower Square, Indore</p>
+              <a class="button" href="https://www.google.com/maps/search/?api=1&query=Udaan+Abacus+Academy+914+2nd+Floor+Tower+Square+Indore" target="_blank" rel="noopener">Get Directions</a>
+            </div>
+          </div>
+          <div class="location-card">
+            <img src="assets/contact-card.jpeg" alt="Udaan Abacus Academy location and contact details">
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -1127,24 +1446,45 @@
           <p>Udaan Abacus Academy helps children build strong learning habits, confidence, and mental math skills through caring guidance and structured practice.</p>
         </div>
         <div>
-          <h3>Course</h3>
+          <h3>Quick Links</h3>
           <ul>
-            <li>Age group 5 – 14 years</li>
-            <li>Program duration 3 months for each level</li>
-            <li>Learning levels total 0 to 10 levels</li>
-            <li>Weekly Classes 5 days a week Mon-Fri</li>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#course">Course</a></li>
+            <li><a href="#franchise">Franchise</a></li>
+            <li><a href="#careers">Careers</a></li>
+            <li><a href="#contact">Contact Us</a></li>
           </ul>
         </div>
         <div>
-          <h3>Stay In Touch</h3>
+          <h3>Support</h3>
           <ul>
-            <li>WhatsApp: 8827773391</li>
-            <li>Call: 8827773391</li>
-            <li>Instagram: udaan.abacus</li>
+            <li><a href="#contact">Contact Us</a></li>
+            <li>Privacy Policy</li>
+            <li>Terms &amp; Conditions</li>
+            <li>Refund Policy</li>
+            <li><a href="#contact">Visit Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Contact Information</h3>
+          <ul>
+            <li>Phone Number: <a href="tel:+918827773391">+91 88277 73391</a></li>
+            <li>Email Address</li>
+            <li>Office Address: 914, 2nd Floor, Tower Square, Indore</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Follow Us</h3>
+          <ul>
+            <li>Facebook</li>
+            <li><a href="https://www.instagram.com/udaan.abacus/" target="_blank" rel="noopener">Instagram</a></li>
+            <li>YouTube</li>
+            <li>LinkedIn</li>
           </ul>
         </div>
       </div>
-      <div class="copyright">Copyright © 2026 by Udaan Abacus Academy. All rights reserved.</div>
+      <div class="copyright">© 2026 Udaan Abacus. All Rights Reserved.</div>
     </div>
   </footer>
 
